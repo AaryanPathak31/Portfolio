@@ -1,0 +1,231 @@
+.about-section {
+    height: 95vh;
+    width: 100%;
+    margin-top: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-title {
+    margin-bottom: 5%;
+    font-size: 5rem;
+    background-image: linear-gradient(rgb(133, 133, 133), rgb(255, 255, 255));
+    color: transparent;
+    background-clip: text;
+}
+
+.bento-grid {
+    position: relative;
+    display: grid;
+    height: 90vh;
+    width: 90%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 
+        "intro intro tech"
+        "time passion tech";
+    gap: 1.5rem;
+}
+
+.card {
+    background: linear-gradient(145deg, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0.07));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 2rem;
+    transition: transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Card specific areas */
+.intro { 
+    grid-area: intro; 
+    min-height: 300px;
+}
+
+.tech {
+    grid-area: tech; 
+    min-height: 450px;
+}
+
+.time { 
+    grid-area: time; 
+    min-height: 220px;
+}
+
+.passion { 
+    grid-area: passion; 
+    min-height: 220px;
+}
+
+/* Hover effects */
+.card:hover {
+    border-color: transparent;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform: translateY(-5px);
+}
+
+/* Spotlight effect */
+.card::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 0 0;
+    background: radial-gradient(circle at var(--x) var(--y),
+                rgba(124, 233, 230, 0.1),
+                transparent 40%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-top: 1rem;
+    color: #ffffff;
+}
+
+.card-text {
+    color: #7b7b7b;
+    line-height: 1.6;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    max-width: 30rem;
+}
+
+.bento-grid .background-img {
+    position: absolute;
+    inset: -1% -1% -1% -1%;
+    width: 110%;
+    height: 110%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.model-box {
+    position: absolute;
+    right: 5%;
+    top: -75%;
+    width: 30rem;
+    height: 30rem;
+}
+
+.info-3D {
+    width: 150%;
+    height: 150%;
+    mix-blend-mode: lighten;
+}
+
+.bento-grid .skills-group {
+    position: absolute;
+    bottom: 5%;
+    left: 15%;
+    width: 70%;
+}
+
+.bento-grid .btn {
+    position: absolute;
+    bottom: 6%;
+    padding: 0.75rem 1.5rem;
+    background-color: rgba(124, 233, 230, 0.1);
+    color: #76b0ab;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.bento-grid .btn:hover {
+    background-color: #76b0ab;
+    color: black;
+}
+
+/* Media Queries */
+@media (max-width: 1400px) {
+    .bento-grid {
+        position: relative;
+        display: grid;
+        height: 80vh;
+        width: 100%;
+        grid-template-columns: auto auto;
+        grid-template-areas: 
+        "intro  tech"
+        "time passion";
+    }
+
+    .intro { 
+        grid-area: intro; 
+        min-height: 700px; 
+        min-width: 300px;
+    }
+
+    .tech {
+        grid-area: tech; 
+        height: 700px; 
+        min-width: 250px;
+    }
+
+    .time { 
+        grid-area: time; 
+        min-height: 300px; 
+        min-width: 250px;
+    }
+
+    .passion { 
+        grid-area: passion; 
+        min-height: 220px; 
+        min-width: 250px;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+        margin-top: 0;
+    }
+
+    .card-text {
+        /* margin-top: -1%; */
+        line-height: 1.3;
+        font-size: 0.8rem;
+    }
+
+    .model-box {
+        right: 10%;
+        top: 18%;
+    }
+}
+
+@media (max-width: 480px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "intro"
+            "tech"
+            "time"
+            "passion";
+    }
+
+    .about-title {
+        margin-bottom: 5%;
+        font-size: 3rem;
+    }
+
+    .model-box {
+        right: -4%;
+        top: 27%;
+        scale: 0.7;
+    }
+}
+
+@media (max-width: 380px) {
+    .model-box {
+        right: 2%;
+        top: 27%;
+    }
+}

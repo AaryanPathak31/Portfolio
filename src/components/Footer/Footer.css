@@ -1,0 +1,42 @@
+footer {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 2rem 4rem;
+    background-color: rgba(124, 233, 230, 0.1);
+}
+
+.box-icons {
+    display: flex;
+    gap: 2rem;
+}
+
+.box-icons a {
+    color: lightgray;
+    font-size: 2rem;
+    transition: color 0.5s;
+}
+
+.box-icons a:hover {
+    color: #7ce9e6;
+}
+
+/* Media Queries */
+@media (max-width: 480px) {
+    .box-icons {
+        display: none;
+    }
+
+    footer h3 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 380px) {
+    footer h3 {
+        font-size: 0.8rem;
+    }
+}
